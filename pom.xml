@@ -66,6 +66,7 @@
         <module>ohc-core</module>
         <module>ohc-benchmark</module>
         <module>ohc-jmh</module>
+        <module>quick-start</module>
     </modules>
 
     <properties>

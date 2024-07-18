@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.ByteBuffer;
-import java.util.zip.CRC32C;
+import java.util.zip.CRC32;
 
 final class Crc32cHash
 {
@@ -48,7 +48,7 @@ final class Crc32cHash
 
     static final class Crc32cHashImpl extends Hasher {
         long hash(ByteBuffer buffer) {
-            CRC32C crc = new CRC32C();
+            CRC32 crc = new CRC32();
             crc.update(buffer);
             return crc.getValue();
         }

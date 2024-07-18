@@ -18,7 +18,7 @@ package org.caffinitas.ohc.linked;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.zip.CRC32C;
+import java.util.zip.CRC32;
 
 final class Crc32cHash
 {
@@ -47,7 +47,7 @@ final class Crc32cHash
 
     static final class Crc32cHashImpl extends Hasher {
         long hash(byte[] array) {
-            CRC32C crc = new CRC32C();
+            CRC32 crc = new CRC32();
             crc.update(array);
             long h = crc.getValue();
             h |= h << 32;
@@ -57,7 +57,7 @@ final class Crc32cHash
         long hash(long address, long offset, int length) {
             Uns.validate(address, offset, length);
 
-            CRC32C crc = new CRC32C();
+            CRC32 crc = new CRC32();
             crc.update(Uns.directBufferFor(address, offset, length, true));
             long h = crc.getValue();
             h |= h << 32;
